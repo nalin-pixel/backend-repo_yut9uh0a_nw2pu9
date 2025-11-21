@@ -1,19 +1,43 @@
 INFO:     Will watch for changes in these directories: ['/home/workspace']
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-INFO:     Started reloader process [152] using StatReload
-INFO:     Started server process [154]
+INFO:     Started reloader process [236] using StatReload
+INFO:     Started server process [238]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:     172.20.0.1:50426 - "HEAD / HTTP/1.1" 405 Method Not Allowed
-INFO:     172.20.0.1:50446 - "GET /api/markets HTTP/1.1" 200 OK
-INFO:     172.20.0.1:50446 - "GET /api/markets HTTP/1.1" 200 OK
-INFO:     172.20.0.1:50438 - "GET /api/strategies HTTP/1.1" 200 OK
-INFO:     172.20.0.1:50454 - "GET /api/paper/trades HTTP/1.1" 200 OK
-INFO:     172.20.0.1:50438 - "GET /api/strategies HTTP/1.1" 200 OK
-INFO:     172.20.0.1:50454 - "GET /api/paper/trades HTTP/1.1" 200 OK
-INFO:     172.20.0.1:51994 - "GET /api/markets HTTP/1.1" 200 OK
-INFO:     172.20.0.1:51996 - "GET /api/strategies HTTP/1.1" 200 OK
-INFO:     172.20.0.1:52004 - "GET /api/paper/trades HTTP/1.1" 200 OK
-INFO:     172.20.0.1:51994 - "GET /api/markets HTTP/1.1" 200 OK
-INFO:     172.20.0.1:51996 - "GET /api/strategies HTTP/1.1" 200 OK
-INFO:     172.20.0.1:52004 - "GET /api/paper/trades HTTP/1.1" 200 OK
+INFO:     172.20.0.1:50062 - "HEAD / HTTP/1.1" 405 Method Not Allowed
+INFO:     172.20.0.1:59126 - "GET /api/markets HTTP/1.1" 200 OK
+INFO:     172.20.0.1:59142 - "GET /api/analytics/option-chain?symbol=NIFTY HTTP/1.1" 200 OK
+INFO:     172.20.0.1:59156 - "GET /api/analytics/pcr?symbol=NIFTY HTTP/1.1" 200 OK
+INFO:     172.20.0.1:59172 - "GET /api/analytics/fii-dii HTTP/1.1" 200 OK
+INFO:     172.20.0.1:59180 - "GET /api/analytics/vix HTTP/1.1" 200 OK
+INFO:     172.20.0.1:59126 - "GET /api/analytics/advance-decline HTTP/1.1" 200 OK
+INFO:     172.20.0.1:59142 - "GET /api/fixed-income/yield-curve HTTP/1.1" 200 OK
+INFO:     172.20.0.1:59172 - "GET /api/analytics/option-chain?symbol=NIFTY HTTP/1.1" 200 OK
+INFO:     172.20.0.1:59180 - "GET /api/markets HTTP/1.1" 200 OK
+INFO:     172.20.0.1:59126 - "GET /api/analytics/pcr?symbol=NIFTY HTTP/1.1" 200 OK
+INFO:     172.20.0.1:59142 - "GET /api/analytics/vix HTTP/1.1" 200 OK
+INFO:     172.20.0.1:59172 - "GET /api/analytics/advance-decline HTTP/1.1" 200 OK
+INFO:     172.20.0.1:59180 - "GET /api/analytics/fii-dii HTTP/1.1" 200 OK
+INFO:     172.20.0.1:59126 - "GET /api/fixed-income/yield-curve HTTP/1.1" 200 OK
+INFO:     172.20.0.1:59154 - "GET /api/strategies HTTP/1.1" 200 OK
+INFO:     172.20.0.1:59156 - "GET /api/paper/trades HTTP/1.1" 200 OK
+INFO:     172.20.0.1:59154 - "GET /api/strategies HTTP/1.1" 200 OK
+INFO:     172.20.0.1:59156 - "GET /api/paper/trades HTTP/1.1" 200 OK
+INFO:     172.20.0.1:38730 - "GET /api/markets HTTP/1.1" 200 OK
+INFO:     172.20.0.1:38736 - "GET /api/analytics/option-chain?symbol=NIFTY HTTP/1.1" 200 OK
+INFO:     172.20.0.1:38742 - "GET /api/analytics/pcr?symbol=NIFTY HTTP/1.1" 200 OK
+INFO:     172.20.0.1:38758 - "GET /api/analytics/vix HTTP/1.1" 200 OK
+INFO:     172.20.0.1:38728 - "GET /api/strategies HTTP/1.1" 200 OK
+INFO:     172.20.0.1:38730 - "GET /api/analytics/fii-dii HTTP/1.1" 200 OK
+INFO:     172.20.0.1:38736 - "GET /api/fixed-income/yield-curve HTTP/1.1" 200 OK
+INFO:     172.20.0.1:38742 - "GET /api/analytics/advance-decline HTTP/1.1" 200 OK
+INFO:     172.20.0.1:38758 - "GET /api/paper/trades HTTP/1.1" 200 OK
+INFO:     172.20.0.1:38728 - "GET /api/markets HTTP/1.1" 200 OK
+INFO:     172.20.0.1:38730 - "GET /api/analytics/pcr?symbol=NIFTY HTTP/1.1" 200 OK
+INFO:     172.20.0.1:38742 - "GET /api/analytics/option-chain?symbol=NIFTY HTTP/1.1" 200 OK
+INFO:     172.20.0.1:38736 - "GET /api/analytics/vix HTTP/1.1" 200 OK
+INFO:     172.20.0.1:38728 - "GET /api/analytics/fii-dii HTTP/1.1" 200 OK
+INFO:     172.20.0.1:38730 - "GET /api/analytics/advance-decline HTTP/1.1" 200 OK
+INFO:     172.20.0.1:38742 - "GET /api/fixed-income/yield-curve HTTP/1.1" 200 OK
+INFO:     172.20.0.1:38758 - "GET /api/strategies HTTP/1.1" 200 OK
+INFO:     172.20.0.1:38736 - "GET /api/paper/trades HTTP/1.1" 200 OK

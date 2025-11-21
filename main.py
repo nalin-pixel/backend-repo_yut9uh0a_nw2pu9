@@ -7,7 +7,7 @@ from typing import List, Dict, Any, Optional
 from database import db, create_document, get_documents
 from schemas import Instrument, Strategy, Trade
 
-app = FastAPI(title="Opus Trading API", description="Unified API for multi-asset algo trading platform: equities, derivatives, currency, commodities, crypto (sim), global markets (sim).", version="0.1.0")
+app = FastAPI(title="Opus Trading API", description="Unified API for multi-asset algo trading platform: equities, derivatives, currency, commodities, crypto (sim), global markets (sim).", version="0.2.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -161,7 +161,7 @@ def list_trades(symbol: Optional[str] = None):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# --- OPUS: Analytics placeholders ---
+# --- OPUS: Analytics ---
 @app.get("/api/analytics/overview")
 def analytics_overview():
     return {
@@ -181,6 +181,54 @@ def analytics_overview():
             "Neural-network prediction", "Multi-market arbitrage"
         ]
     }
+
+# Option chain snapshot (mock)
+@app.get("/api/analytics/option-chain")
+def option_chain(symbol: str = "NIFTY"):
+    strikes = [i for i in range(22000, 26001, 200)]
+    chain = []
+    for k in strikes:
+        chain.append({
+            "strike": k,
+            "call": {"oi": max(0, int(1000 - abs(24000 - k) * 1.5)), "iv": round(12 + abs(24000 - k) / 500, 2)},
+            "put": {"oi": max(0, int(800 - abs(24000 - k) * 1.3)), "iv": round(13 + abs(24000 - k) / 600, 2)}
+        })
+    return {"symbol": symbol, "underlying": 24050, "chain": chain}
+
+# Put/Call Ratio (mock)
+@app.get("/api/analytics/pcr")
+def pcr(symbol: str = "NIFTY"):
+    total_put_oi = 920000
+    total_call_oi = 870000
+    return {"symbol": symbol, "pcr": round(total_put_oi / total_call_oi, 3), "puts": total_put_oi, "calls": total_call_oi}
+
+# India VIX (mock timeseries)
+@app.get("/api/analytics/vix")
+def vix():
+    import random
+    points = [{"t": i, "v": round(12 + 2 * (i % 10) / 10 + random.random(), 2)} for i in range(30)]
+    return {"name": "India VIX", "values": points}
+
+# FII/DII flows (mock)
+@app.get("/api/analytics/fii-dii")
+def fii_dii():
+    days = [f"D{i}" for i in range(10)]
+    fii = [1200, -300, 450, 800, -200, 100, 900, -150, 700, -50]
+    dii = [-800, 200, -350, -500, 400, -50, -600, 100, -500, 80]
+    return {"days": days, "fii": fii, "dii": dii}
+
+# Advance/Decline (mock)
+@app.get("/api/analytics/advance-decline")
+def advance_decline():
+    data = [{"index": "NSE", "adv": 850, "dec": 650}, {"index": "BSE", "adv": 1240, "dec": 980}]
+    return {"breadth": data}
+
+# Fixed income yield curve (mock)
+@app.get("/api/fixed-income/yield-curve")
+def yield_curve(country: str = "IN"):
+    maturities = ["3M", "6M", "1Y", "2Y", "3Y", "5Y", "7Y", "10Y", "15Y"]
+    yields = [6.4, 6.5, 6.55, 6.6, 6.65, 6.75, 6.85, 7.0, 7.1]
+    return {"country": country, "maturities": maturities, "yields": yields}
 
 if __name__ == "__main__":
     import uvicorn
